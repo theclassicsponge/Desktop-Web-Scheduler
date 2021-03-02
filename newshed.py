@@ -18,7 +18,7 @@ def submit():
     if Alarmtime == currenttime:
         print("Webpage Opening...")
         label3.config(text="Webpage Open")
-        messagebox.showinfo("URL", f"The URL is:{alarmmessage}")
+        messagebox.showinfo("URL", f"This URL will open: {alarmmessage}. Press 'OK' to continue. ")
         webbrowser.open(entry2.get())
 
 def createWidgets():
@@ -36,7 +36,7 @@ def createWidgets():
     entry2 = Entry(root, width=15)
     entry2.grid(row=1, column=1)
 
-    but = Button(root, text="Submit", width=10, command=submit)
+    but = Button(root, text="OK", width=10, command=submit)
     but.grid(row=2, column=1)
 
     global label3
@@ -75,3 +75,4 @@ root.geometry("400x150")
 createWidgets()
 
 root.mainloop()
+#git version
