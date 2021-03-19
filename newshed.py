@@ -2,26 +2,28 @@ from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 import webbrowser
-import time, os
+import time
 
 
 def submit():
+    """Sets the time and the URL and opens the URL at the specified time. """
     global entry1, entry2, label3
-    Alarmtime = entry1.get()
-    #message1()
+    alarmtime = entry1.get()
     currenttime = time.strftime("%H:%M")
     alarmmessage = entry2.get()
-    print(f"The Alarm time is: {Alarmtime}")
-    while Alarmtime != currenttime:
+    print(f"The Alarm time is: {alarmtime}")
+    while alarmtime != currenttime:
         currenttime = time.strftime("%H:%M")
         time.sleep(1)
-    if Alarmtime == currenttime:
+    if alarmtime == currenttime:
         print("Webpage Opening...")
         label3.config(text="Webpage Open")
         messagebox.showinfo("URL", f"This URL will open: {alarmmessage}. Press 'OK' to continue. ")
         webbrowser.open(entry2.get())
 
-def createWidgets():
+
+def createwidgets():
+    """Creates the widgets for the tkinter UI."""
     label1 = Label(root, text="Enter the time in hh:mm - ")
     label1.grid(row=0, column=0, padx=5, pady=5)
 
@@ -43,36 +45,14 @@ def createWidgets():
     label3 = Label(root, text="")
     label3.grid(row=3, column=0)
 
-    def message1():
 
-        global entry1, label3
-        Alarmtimelable = entry1.get()
-        label3.config(text="The Time is Set...")
-        messagebox.showinfo("Webpage", f"The time is {Alarmtimelable}")
-
-    #def submit():
-
-        #global entry1, entry2, label3
-        #Alarmtime = entry1.get()
-        #message1()
-        #currenttime = time.strftime("%H:%M")
-        #alarmmessage = entry2.get()
-        #print(f"The Alarm time is: {Alarmtime}")
-        #while Alarmtime != currenttime:
-            #currenttime = time.strftime("%H:%M")
-           # time.sleep(1)
-        #if Alarmtime == currenttime:
-            #print("Webpage Opening...")
-            #label3.config(text="Webpage Open")
-           # messagebox.showinfo("URL", f"The URL is:{alarmmessage}")
-            #webbrowser.open(entry2.get())
 
 
 root = tk.Tk()
 root.title("Desktop Web Scheduler")
 root.geometry("400x150")
 
-createWidgets()
+createwidgets()
 
 root.mainloop()
 #git version
